@@ -627,3 +627,8 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+
+.file-upload.drag-active .upload-area {
+  border: 2px dashed #D2691E;
+  background: #FFF8DC;
+}

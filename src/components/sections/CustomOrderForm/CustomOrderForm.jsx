@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -54,6 +54,8 @@ const CustomOrderForm = ({ onSubmit, onClose }) => {
   const [currentStep, setCurrentStep] = useState(1);
   const [uploadedFiles, setUploadedFiles] = useState([]);
   const [estimatedPrice, setEstimatedPrice] = useState(0);
+  const [isDragActive, setIsDragActive] = useState(false);
+  const fileInputRef = useRef(null);
 
   const {
     register,
@@ -173,8 +175,15 @@ const CustomOrderForm = ({ onSubmit, onClose }) => {
     }
   };
 
-  const handleFileUpload = (event) => {
-    const files = Array.from(event.target.files);
+  const handleFileUpload = (eventOrFiles) => {
+    let files = [];
+    if (eventOrFiles.target && eventOrFiles.target.files) {
+      files = Array.from(eventOrFiles.target.files);
+    } else if (eventOrFiles.dataTransfer && eventOrFiles.dataTransfer.files) {
+      files = Array.from(eventOrFiles.dataTransfer.files);
+    } else if (Array.isArray(eventOrFiles)) {
+      files = eventOrFiles;
+    }
     const validFiles = files.filter(file => 
       file.type.startsWith('image/') && file.size <= 5 * 1024 * 1024 // 5MB limit
     );
@@ -465,13 +474,27 @@ const CustomOrderForm = ({ onSubmit, onClose }) => {
               
               <div className="form-group">
                 <label>Reference Images (Optional)</label>
-                <div className="file-upload">
+                <div
+                  className={`file-upload${isDragActive ? ' drag-active' : ''}`}
+                  onClick={() => fileInputRef.current && fileInputRef.current.click()}
+                  onDragOver={e => { e.preventDefault(); setIsDragActive(true); }}
+                  onDragEnter={e => { e.preventDefault(); setIsDragActive(true); }}
+                  onDragLeave={e => { e.preventDefault(); setIsDragActive(false); }}
+                  onDrop={e => {
+                    e.preventDefault();
+                    setIsDragActive(false);
+                    handleFileUpload(e);
+                  }}
+                  style={{ cursor: 'pointer' }}
+                >
                   <input
                     type="file"
                     multiple
                     accept="image/*"
                     onChange={handleFileUpload}
                     className="file-input"
+                    ref={fileInputRef}
+                    style={{ display: 'none' }}
                   />
                   <div className="upload-area">
                     <Upload />
