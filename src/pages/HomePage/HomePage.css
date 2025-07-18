@@ -1,0 +1,410 @@
+/* HomePage Styles */
+.homepage {
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+  
+  .homepage__main {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Section Spacing */
+  .homepage__hero,
+  .homepage__about,
+  .homepage__specials,
+  .homepage__coming-soon {
+    position: relative;
+  }
+  
+  /* Hero Section Styles */
+  .homepage__hero {
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* About Section Styles */
+  .homepage__about {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .homepage__about::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, rgba(245, 245, 220, 0.5));
+    pointer-events: none;
+  }
+  
+  /* Specials Section Styles */
+  .homepage__specials {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Coming Soon Section Styles */
+  .homepage__coming-soon {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #F5F5DC 0%, #FFF8DC 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .homepage__coming-soon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 70%, rgba(210, 105, 30, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 30%, rgba(139, 69, 19, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  
+  .homepage__coming-soon .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .homepage__coming-soon-content {
+    text-align: center;
+  }
+  
+  .homepage__coming-soon-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 60px;
+    position: relative;
+  }
+  
+  .homepage__coming-soon-title::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(135deg, #D2691E, #CD853F);
+    border-radius: 2px;
+  }
+  
+  .homepage__coming-soon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    margin-top: 60px;
+  }
+  
+  .homepage__coming-soon-item {
+    background: white;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .homepage__coming-soon-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #D2691E, #CD853F);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .homepage__coming-soon-item:hover::before {
+    transform: scaleX(1);
+  }
+  
+  .homepage__coming-soon-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .homepage__coming-soon-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    display: block;
+    filter: grayscale(0.3);
+    transition: filter 0.3s ease;
+  }
+  
+  .homepage__coming-soon-item:hover .homepage__coming-soon-icon {
+    filter: grayscale(0);
+  }
+  
+  .homepage__coming-soon-item h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+  }
+  
+  .homepage__coming-soon-item p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  /* Smooth Scroll Behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Page Transitions */
+  .homepage {
+    will-change: transform, opacity;
+  }
+  
+  /* Performance Optimizations */
+  .homepage__hero,
+  .homepage__about,
+  .homepage__specials,
+  .homepage__coming-soon {
+    will-change: transform;
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Accessibility Improvements */
+  @media (prefers-reduced-motion: reduce) {
+    .homepage,
+    .homepage__main,
+    .homepage__coming-soon-item {
+      animation: none !important;
+      transition: none !important;
+    }
+    
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  
+  /* Loading States */
+  .homepage__main {
+    min-height: 100vh;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  .homepage__main.loading {
+    opacity: 0.7;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .homepage__coming-soon {
+      padding: 80px 0;
+    }
+    
+    .homepage__coming-soon-title {
+      font-size: 2rem;
+      margin-bottom: 40px;
+    }
+    
+    .homepage__coming-soon-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .homepage__coming-soon-item {
+      padding: 30px 24px;
+    }
+    
+    .homepage__coming-soon-icon {
+      font-size: 2.5rem;
+    }
+    
+    .homepage__coming-soon-item h3 {
+      font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .homepage__coming-soon {
+      padding: 60px 0;
+    }
+    
+    .homepage__coming-soon-title {
+      font-size: 1.8rem;
+    }
+    
+    .homepage__coming-soon-item {
+      padding: 24px 20px;
+    }
+    
+    .homepage__coming-soon-icon {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+    
+    .homepage__coming-soon-item h3 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+    }
+    
+    .homepage__coming-soon-item p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  /* High DPI Display Support */
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .homepage__coming-soon-item {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+    
+    .homepage__coming-soon-item:hover {
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+  }
+  
+  /* Print Styles */
+  @media print {
+    .homepage__coming-soon {
+      background: white !important;
+      color: black !important;
+      padding: 20px 0;
+    }
+    
+    .homepage__coming-soon-item {
+      box-shadow: none !important;
+      border: 1px solid #ccc;
+      page-break-inside: avoid;
+    }
+    
+    .homepage__coming-soon-icon {
+      display: none;
+    }
+  }
+  
+  /* Dark Mode Support (Future Enhancement) */
+  @media (prefers-color-scheme: dark) {
+    .homepage__coming-soon {
+      background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    }
+    
+    .homepage__coming-soon-item {
+      background: #333;
+      color: #fff;
+    }
+    
+    .homepage__coming-soon-item h3 {
+      color: #fff;
+    }
+    
+    .homepage__coming-soon-item p {
+      color: #ccc;
+    }
+  }
+  
+  /* Focus Styles for Accessibility */
+  .homepage__coming-soon-item:focus-within {
+    outline: 2px solid #D2691E;
+    outline-offset: 4px;
+  }
+  
+  /* Hover Effects for Touch Devices */
+  @media (hover: none) and (pointer: coarse) {
+    .homepage__coming-soon-item:hover {
+      transform: none;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .homepage__coming-soon-item:active {
+      transform: scale(0.98);
+    }
+  }
+
+  /* Modal Styles */
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+  }
+
+  .modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+    position: relative;
+  }
+
+  .modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #666;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+  }
+
+  .modal-close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+    color: #333;
+  }
+
+  @keyframes modalSlideIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9) translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
+  }
+
+  /* Gallery and Contact Sections */
+  .homepage__gallery,
+  .homepage__contact {
+    padding: 100px 0;
+  }
+
+  .homepage__gallery {
+    background: var(--color-background);
+  }
+
+  .homepage__contact {
+    background: linear-gradient(135deg, var(--color-secondary-light) 0%, white 100%);
+  }

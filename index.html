@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#D2691E" />
+    <meta
+      name="description"
+      content="Sweet Delights Bakery - Artisanal cakes, pastries, and sweet treats made with love and the finest ingredients. Custom orders, daily specials, and local delivery available."
+    />
+    <meta name="keywords" content="bakery, cakes, pastries, custom cakes, wedding cakes, birthday cakes, local bakery, artisanal baking" />
+    <meta name="author" content="Sweet Delights Bakery" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://sweetdelightsbakery.com/" />
+    <meta property="og:title" content="Sweet Delights Bakery - Artisanal Cakes & Pastries" />
+    <meta property="og:description" content="Discover our handcrafted cakes, pastries, and sweet treats. Custom orders, daily specials, and local delivery available." />
+    <meta property="og:image" content="/logo512.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://sweetdelightsbakery.com/" />
+    <meta property="twitter:title" content="Sweet Delights Bakery - Artisanal Cakes & Pastries" />
+    <meta property="twitter:description" content="Discover our handcrafted cakes, pastries, and sweet treats. Custom orders, daily specials, and local delivery available." />
+    <meta property="twitter:image" content="/logo512.png" />
+    
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect to external domains for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <title>Sweet Delights Bakery - Artisanal Cakes & Pastries</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/index.jsx"></script>
+    
+    <!-- Structured Data for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Sweet Delights Bakery",
+      "description": "Artisanal cakes, pastries, and sweet treats made with love and the finest ingredients",
+      "url": "https://sweetdelightsbakery.com",
+      "logo": "https://sweetdelightsbakery.com/logo512.png",
+      "image": "https://sweetdelightsbakery.com/logo512.png",
+      "priceRange": "$$",
+      "servesCuisine": ["Cakes", "Pastries", "Baked Goods"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Bakery Products",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Custom Cakes"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Product",
+              "name": "Daily Specials"
+            }
+          }
+        ]
+      }
+    }
+    </script>
+  </body>
+</html>

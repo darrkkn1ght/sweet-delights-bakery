@@ -1,0 +1,371 @@
+/* Daily Specials Section Styles */
+.daily-specials {
+    padding: 120px 0;
+    background: linear-gradient(135deg, #FEFEFE 0%, #F9F9F9 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .daily-specials::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="%23D2691E" opacity="0.05"/></svg>');
+    background-size: 50px 50px;
+    pointer-events: none;
+  }
+  
+  .daily-specials .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Header Styles */
+  .daily-specials__header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+  
+  .daily-specials__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #D2691E, #CD853F);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 20px rgba(210, 105, 30, 0.3);
+  }
+  
+  .daily-specials__badge-icon {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .daily-specials__title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 20px;
+    line-height: 1.1;
+  }
+  
+  .daily-specials__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Day Selector Styles */
+  .daily-specials__day-selector {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 60px;
+    padding: 20px 0;
+    border-bottom: 2px solid #F5F5DC;
+  }
+  
+  .daily-specials__day-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+  }
+  
+  .daily-specials__time-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+  
+  .daily-specials__time-icon {
+    width: 16px;
+    height: 16px;
+    color: #D2691E;
+  }
+  
+  /* Grid Styles */
+  .daily-specials__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 80px;
+  }
+  
+  /* Card Styles */
+  .daily-specials__card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .daily-specials__card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .daily-specials__card-header {
+    position: relative;
+    height: 240px;
+    overflow: hidden;
+  }
+  
+  .daily-specials__card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .daily-specials__card:hover .daily-specials__card-image {
+    transform: scale(1.05);
+  }
+  
+  .daily-specials__limited-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #8B4513, #A0522D);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+  
+  .daily-specials__limited-icon {
+    width: 14px;
+    height: 14px;
+  }
+  
+  /* Card Content Styles */
+  .daily-specials__card-content {
+    padding: 30px;
+  }
+  
+  .daily-specials__card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+    line-height: 1.3;
+  }
+  
+  .daily-specials__card-description {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-size: 0.95rem;
+  }
+  
+  .daily-specials__card-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 16px 0;
+    border-top: 1px solid #F5F5DC;
+    border-bottom: 1px solid #F5F5DC;
+  }
+  
+  .daily-specials__price-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .daily-specials__price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #D2691E;
+  }
+  
+  .daily-specials__original-price {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    text-decoration: line-through;
+  }
+  
+  .daily-specials__quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  
+  .daily-specials__quantity-label {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+  }
+  
+  .daily-specials__quantity-value {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+  }
+  
+  .daily-specials__card-actions {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .daily-specials__order-btn {
+    flex: 1;
+  }
+  
+  .daily-specials__details-btn {
+    flex: 1;
+  }
+  
+  /* CTA Section Styles */
+  .daily-specials__cta {
+    text-align: center;
+    padding: 60px 40px;
+    background: linear-gradient(135deg, #FFF8DC, #F5F5DC);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .daily-specials__cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(210, 105, 30, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .daily-specials__cta-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .daily-specials__cta-text {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .daily-specials {
+      padding: 80px 0;
+    }
+    
+    .daily-specials__header {
+      margin-bottom: 60px;
+    }
+    
+    .daily-specials__badge {
+      font-size: 0.8rem;
+      padding: 10px 20px;
+    }
+    
+    .daily-specials__title {
+      font-size: 2.5rem;
+    }
+    
+    .daily-specials__subtitle {
+      font-size: 1.1rem;
+    }
+    
+    .daily-specials__day-selector {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+    
+    .daily-specials__day-title {
+      font-size: 1.6rem;
+    }
+    
+    .daily-specials__grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+    
+    .daily-specials__card-content {
+      padding: 24px;
+    }
+    
+    .daily-specials__card-title {
+      font-size: 1.2rem;
+    }
+    
+    .daily-specials__card-details {
+      flex-direction: column;
+      gap: 16px;
+      text-align: center;
+    }
+    
+    .daily-specials__quantity {
+      align-items: center;
+    }
+    
+    .daily-specials__card-actions {
+      flex-direction: column;
+    }
+    
+    .daily-specials__cta {
+      padding: 40px 24px;
+    }
+    
+    .daily-specials__cta-title {
+      font-size: 1.6rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .daily-specials__grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .daily-specials__card-header {
+      height: 200px;
+    }
+    
+    .daily-specials__card-content {
+      padding: 20px;
+    }
+    
+    .daily-specials__price {
+      font-size: 1.3rem;
+    }
+  }
